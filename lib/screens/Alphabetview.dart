@@ -9,7 +9,14 @@ class Alphabetview extends StatefulWidget {
 }
 
 class _AlphabetviewState extends State<Alphabetview> {
-  var _word = Library;
+  // var  = Library.words.asMap();
+  Library _library = new Library();
+  var words = [
+    'A',
+    'Capital letter B',
+    'Capital letter C',
+    'Capital letter D',];
+  
 
   @override
   initState() {
@@ -25,9 +32,7 @@ class _AlphabetviewState extends State<Alphabetview> {
   }
 
   List<Widget> _pages = [
-    Image.asset(
-      'assets/11.png',
-    ),
+    Image.asset('assets/11.png'),
     Image.asset('assets/12.png'),
     Image.asset('assets/13.png'),
     Image.asset('assets/14.png'),
@@ -64,8 +69,8 @@ class _AlphabetviewState extends State<Alphabetview> {
 
   @override
   Widget build(BuildContext context) {
-    Future _speak([word]) async {
-      await flutterTts.speak(word.toString());
+    Future _speak([me]) async {
+      await flutterTts.speak(me.toString());
     }
 
     return Scaffold(
@@ -97,7 +102,10 @@ class _AlphabetviewState extends State<Alphabetview> {
                             _controller.previousPage(
                                 duration: _kDuration, curve: _kCurve);
                             setState(() {
-                              _speak(_word);
+                              
+                             _speak(words.toString());
+                             print(words[1].iterator.current);
+                             
                             });
                           }),
                       FloatingActionButton(

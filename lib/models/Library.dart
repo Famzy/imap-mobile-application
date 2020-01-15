@@ -1,5 +1,5 @@
 class Library {
-  static const words = [
+  var words = [
     'Capital letter A',
     'Capital letter B',
     'Capital letter C',
